@@ -11,7 +11,7 @@ import { Session } from "next-auth"
 export default function Setting({session}: {session: Session}) {
   const handleLogout = async () => {
     'use server'
-    await signOut()
+    await signOut({ redirectTo: '/' })
   }
   return (
     <div>
