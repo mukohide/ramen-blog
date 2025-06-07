@@ -61,7 +61,6 @@ export default async function PostPage({params} : Params) {
                     unwrapDisallowed={true} // Markdownの改行を解釈
                 >{post.content}</ReactMarkdown>
             </div>
-            {post.content}
         </CardContent>
       </Card>
     </div>

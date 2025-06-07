@@ -25,7 +25,7 @@ type EditPostFormProps = {
 export default function EditPostForm({post}: EditPostFormProps) {
     const [content, setContent] = useState(post.content)
     const [contentLength, setContentLength] = useState(0)
-    const [preview, setPreview] = useState(false)
+    // const [preview, setPreview] = useState(false)
     const [title, setTitle] = useState(post.title)
     const [published, setPublished] = useState(post.published)
     const [imagePreview, setImagePreview] = useState(post.topImage)
@@ -58,7 +58,7 @@ export default function EditPostForm({post}: EditPostFormProps) {
 
     return (
         <div className="container mx-auto mt-10">
-            <h1 className="text-2xl font-bold mb-4">新規記事投稿(Markdown対応)</h1>
+            <h1 className="text-2xl font-bold mb-4">新規記事投稿</h1>
             <form action={formAction} className="space-y-4">
                 <div>
                     <Label htmlFor="title">タイトル</Label>
@@ -97,9 +97,9 @@ export default function EditPostForm({post}: EditPostFormProps) {
                     )}
                 </div>
                 <div>
-                    <Label htmlFor="content">内容(Markdown)</Label>
+                    <Label htmlFor="content">内容</Label>
                     <TextareaAutosize
-                        id="content" name="content" className="w-full border p-2" placeholder="Markdown形式で入力してください"
+                        id="content" name="content" className="w-full border p-2" placeholder="記事の内容を入力してください"
                         minRows={8} value={content} onChange={handleContentChange} />
                     {state.errors.content && (
                         <p className="text-red-500 text-sm mt-1">{state.errors.content.join(',')}</p>
@@ -108,12 +108,12 @@ export default function EditPostForm({post}: EditPostFormProps) {
                 <div className="text-right text-sm text-gray-500 mt-1">
                     文字数: {contentLength}
                 </div>
-                <div>
+                {/* <div>
                     <Button type="button" onClick={()=> setPreview(!preview)}>
                         {preview ? 'プレビューを閉じる' : 'プレビューを表示'}
                     </Button>
-                </div>
-                {preview && (
+                </div> */}
+                {/* {preview && (
                     <div className="border p-4 bg-gray-50 prose max-w-none">
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
@@ -123,7 +123,7 @@ export default function EditPostForm({post}: EditPostFormProps) {
                         >{content}</ReactMarkdown>
 
                     </div>
-                )}
+                )} */}
 
                 <RadioGroup value={published.toString()} name="published" onValueChange={(value)=> setPublished(value === 'true')}>
                     <div className="flex items-center space-x-2">
