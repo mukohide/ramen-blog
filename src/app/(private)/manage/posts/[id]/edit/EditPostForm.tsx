@@ -128,11 +128,11 @@ export default function EditPostForm({post}: EditPostFormProps) {
                 <RadioGroup value={published.toString()} name="published" onValueChange={(value)=> setPublished(value === 'true')}>
                     <div className="flex items-center space-x-2">
                         <RadioGroupItem value="true" id="published-one" />
-                        <Label htmlFor="published-one">表示</Label>
+                        <Label htmlFor="published-one">公開</Label>
                     </div>
                     <div className="flex items-center space-x-2">
                         <RadioGroupItem value="false" id="published-two" />
-                        <Label htmlFor="published-two">非表示</Label>
+                        <Label htmlFor="published-two">非公開</Label>
                     </div>
                 </RadioGroup>
 

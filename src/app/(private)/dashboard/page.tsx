@@ -35,7 +35,7 @@ export default async function DashBoardPage() {
         <thead>
           <tr className="bg-gray-100">
             <th className="border p-2 text-center">タイトル</th>
-            <th className="border p-2 text-center">表示</th>
+            <th className="border p-2 text-center">公開／非公開</th>
             <th className="border p-2 text-center">更新日時</th>
             <th className="border p-2 text-center">操作</th>
         </tr>
@@ -45,7 +45,7 @@ export default async function DashBoardPage() {
             <tr key={post.id}>
               <td className="border p-2">{post.title}</td>
               <td className="border p-2 text-center">
-                {post.published ? "表示" : "非表示"}
+                {post.published ? "公開" : "公開／非公開"}
               </td>
               <td className="border p-2 text-center">
                 {new Date(post.updatedAt).toLocaleString()}
