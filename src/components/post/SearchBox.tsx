@@ -30,7 +30,7 @@ export default function SearchBox() {
     <>
         <Input
             placeholder="記事を検索..."
-            className="w-[200px] lg:w-[300]"
+            className="w-[200px] lg:w-[300] bg-white"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
         />

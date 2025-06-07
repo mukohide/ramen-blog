@@ -30,7 +30,7 @@ export default function PostCard({post}: PostCardProps) {
                 <CardTitle className="line-clamp-2">{post.title}</CardTitle>
             </CardHeader>
             <CardContent>
-                <p className="text-sm test-gray-600 mb-2 line-clamp-2">
+                <p className="text-sm text-gray-600 mb-2 line-clamp-2">
                     {post.content}
                 </p>
                 <div className="flex items-center justify-between text-sm text-gray-500">

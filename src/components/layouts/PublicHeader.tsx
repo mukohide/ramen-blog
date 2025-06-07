@@ -12,14 +12,14 @@ import {
 export default function PublicHeader() {
   return (
     <div>
-      <header className="border-b bg-blue-200">
+      <header className="border-b bg-red-800 text-white">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <Link href="/" legacyBehavior passHref>
                             <NavigationMenuLink className="font-bold text-xl">
-                                Blog
+                                ラーメンブログ
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
@@ -27,12 +27,12 @@ export default function PublicHeader() {
             </NavigationMenu>
             <div className="flex items-center gap-4">
                 <SearchBox />
-                <Button variant="outline" asChild>
+                <Button variant="outline" asChild className="bg-orange-400">
                     <Link href="/login">
                         ログイン
                     </Link>
                 </Button>
-                <Button>
+                <Button variant="outline" className="bg-orange-400">
                     <Link href="/register">
                         登録
                     </Link>
