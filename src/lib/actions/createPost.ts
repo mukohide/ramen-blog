@@ -24,6 +24,7 @@ export async function createPost(
     const title = formData.get('title') as string
     const content = formData.get('content') as string
     const topImageInput = formData.get('topImage')
+    const published = formData.get('published') === 'true'
     // topImageInputがFileかどうか判定
     const topImage = topImageInput instanceof File ? topImageInput : null
 
@@ -52,7 +53,7 @@ export async function createPost(
             title,
             content,
             topImage: imageUrl,
-            published: true,
+            published,
             authorId: userId
         }
     })

@@ -10,12 +10,14 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { createPost } from "@/lib/actions/createPost";
 import Image from "next/image";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 export default function CreatePage() {
     const [content, setContent] = useState('')
     const [contentLength, setContentLength] = useState(0)
     // const [preview, setPreview] = useState(false)
     const [imagePreview, setImagePreview] = useState<string | null>(null)
+    const [published, setPublished] = useState(true)
 
     const [state, formAction] = useActionState(createPost, {
       success: false, errors: {}
@@ -92,6 +94,18 @@ export default function CreatePage() {
         <div className="text-right text-sm text-gray-500 mt-1">
             文字数: {contentLength}
         </div>
+        <div>
+            <RadioGroup value={published.toString()} name="published" onValueChange={(value)=> setPublished(value === 'true')}>
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="true" id="published-one" />
+                    <Label htmlFor="published-one">公開</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="false" id="published-two" />
+                    <Label htmlFor="published-two">非公開</Label>
+                </div>
+            </RadioGroup>
+        </div>
         {/* <div>
           <Button type="button" onClick={()=> setPreview(!preview)}>
             {preview ? 'プレビューを閉じる' : 'プレビューを表示'}
@@ -107,6 +121,7 @@ export default function CreatePage() {
             >{content}</ReactMarkdown>
           </div>
         )} */}
+
         <Button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">投稿する</Button>
       </form>
     </div>
