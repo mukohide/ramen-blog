@@ -12,7 +12,7 @@ import { PostCardProps } from "@/types/post"
 
 export default function PostCard({post}: PostCardProps) {
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-lg transition-shadow p-0">
         <Link href={`/posts/${post.id}`}>
             {post.topImage && (
                 <div className="relative w-full h-48">
@@ -26,7 +26,7 @@ export default function PostCard({post}: PostCardProps) {
                     />
                 </div>
             )}
-            <CardHeader>
+            <CardHeader className="pt-4">
                 <CardTitle className="line-clamp-2">{post.title}</CardTitle>
             </CardHeader>
             <CardContent>

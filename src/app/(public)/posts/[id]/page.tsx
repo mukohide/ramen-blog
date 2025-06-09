@@ -28,7 +28,7 @@ export default async function PostPage({params} : Params) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="max-w-3xl mx-auto">
+      <Card className="max-w-3xl mx-auto p-0">
         {post.topImage && (
             <div className="relative w-full h-64 lg:h-96">
                 <Image
@@ -41,7 +41,7 @@ export default async function PostPage({params} : Params) {
                 />
             </div>
         )}
-        <CardHeader>
+        <CardHeader className="pt-4">
             <div className="flex justify-between items-center mb-4">
                 <p className="text-sm text-gray-500">
                     投稿者：{ post.author.name }
