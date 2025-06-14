@@ -10,3 +10,9 @@ export type Post = {
 }
 
 export type PostCardProps = {post: Post}
+
+export type PaginatedPosts = {
+    posts: Post[]
+    totalPages: number
+    currentPage: number
+}

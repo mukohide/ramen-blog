@@ -1,19 +1,40 @@
 import { prisma } from '@/lib/prisma'
 
-export async function getPosts(){
-    return await prisma.post.findMany({
-        where: { published: true },
-        include: {
-            author: {
-                select: {
-                    name: true
-                }
+export async function getPosts(page: number = 1) {
+    const limit = 15
+    const skip = (page - 1) * limit
+
+    const [posts, total] = await Promise.all([
+        prisma.post.findMany({
+            where: {
+                published: true
+            },
+            orderBy: {
+                createdAt: 'desc'
+            },
+            skip,
+            take: limit,
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                topImage: true,
+                author: true,
+                createdAt: true
             }
-        },
-        orderBy: {
-            createdAt: 'desc'
-        }
-    })
+        }),
+        prisma.post.count({
+            where: {
+                published: true
+            }
+        })
+    ])
+
+    return {
+        posts,
+        totalPages: Math.ceil(total / limit),
+        currentPage: page
+    }
 }
 
 export async function getPost(id: string){
